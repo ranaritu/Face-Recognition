@@ -1,9 +1,10 @@
 function [outputimage,name,age]=Recognition(T,m1, Eigenfaces, ProjectedImages, imageno);
+ 
 MeanInputImage=[];
-[fname pname]=uigetfile('*.jpg','Select the input image for recognition');
+[fname pname]=uigetfile('*.jpg','Select the input face for recognition');
 InputImage=imread(fname);
 InputImage=rgb2gray(InputImage);
-InputImage=imresize(InputImage,[200 180],'bilinear');%resizing of input image. This is a part of preprocessing techniques of images
+InputImage=imresize(InputImage,[200 180],'bilinear');
 [m n]=size(InputImage);
 imshow(InputImage);
 Imagevector=reshape(InputImage',m*n,1);%to get elements along rows as we take InputImage'
@@ -31,82 +32,101 @@ end
 if(MinEuclid<0.8e008)
 if(MinEuclid<0.35e008)
     outputimage=(strcat(int2str(index),'.jpg'));
-   % figure,imshow(outputimage);
-    switch index % we are entering the name of the persons in the code itself
-        % There is no provision of entering the name in real time
+   
+    switch index 
         case 1
             name = 'Jonathan Swift';
-            age = 22;
+            age = '22';
         case 2
             name ='Eliyahu Goldratt';
-            age= 25;
+            age= '25';
         case 3
             name = 'Anpage';
-            age = 35;
+            age = '35';
         case 4
             name ='Rizwana';
-            age = 30;
+            age = '30';
         case 5
             name ='Rihana';
-            age = 48;
+            age = '48';
         case 6
             name = 'Seema';
-            age = 19;
+            age = '19';
         case 7
             name ='Kasana';
-            age = 27;
+            age = '27';
         case 8
             name ='Hanifa';
-            age= 33;
+            age= '33';
         case 9
             name ='Alefiya';
-            age= 22;
+            age= '22';
         case 10
             name ='Mamta';
-            age = 50;
+            age = '50';
         case 11
             name ='Mayawati';
-            age = 39;
+            age = '39';
         case 12
-            disp('Elizabeth');
-            disp('Age=87');
+            name ='Elizabeth';
+            age='87';
         case 13
-            disp('Cecelia Ahern');
-            disp('Age=78');
+             name ='Cecelia Ahern';
+            age ='78';
         case 14
-            disp('Shaista Khatun');
-            disp('Age=56');
+             name ='Shaista Khatun';
+           age ='56';
         case 15
-            disp('Rahisa Khatun');
-            disp('Age=45');
+             name ='Rahisa Khatun';
+            age ='45';
         case 16
-            disp('Ruksana');
-            disp('Age=64');
+             name ='Ruksana';
+            age ='64';
         case 17
-            disp('Parizad Zorabian');
-            disp('Age=38');
+             name ='Parizad Zorabian';
+            age ='38';
         case 18
-            disp('Heena kundanani');
-            disp('Age=20');
+             name ='Heena kundanani';
+            age ='20';
         case 19
-              disp('Setu Savani');
-              disp('Age=21');
+               name ='Setu Savani';
+              age ='21';
          case 20
-             disp('Mohd Zubair Saifi');
-             disp('Age=20');
+              name ='Mohd Zubair Saifi';
+             age ='20';
+        case 21 
+            name='Rajesh Mishra';
+            age ='38';
+        case 22 
+            name='Rajesh Mishra';
+            age ='38';
+        case 23 
+            name='Rajesh Mishra';
+            age ='38';
+         case 24 
+            name='Rajesh Mishra';
+            age ='38';   
+         case 25 
+            name='Rajesh Mishra';
+            age ='38';   
+         case 26 
+            name='Mark Savani';
+            age ='30';
+            
+            
          otherwise
-            disp('Image in database but name unknown')
+             name ='Image in database but name unknown';
     end
-disp(name)
-disp(age)
+
 else
-    disp('No matches found');
-    disp('You are not allowed to enter this system');
+    name ='No matches found';
+    age = 'Unavailable';
     outputimage=0;
 end
 else
-    disp('Image is not even a face');
+    name ='Image is not a face';
+    age ='N/A';
     outputimage=0;
 end
-save test2.mat % this is used to save the variables of the file and thus can be used to set Eigenvalues
+
 end
